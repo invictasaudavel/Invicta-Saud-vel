@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <link href="//vjs.zencdn.net/5.4.6/video-js.min.css" rel="stylesheet">
+  <script src="//vjs.zencdn.net/5.4.6/video.min.js"></script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="logo" type="image/png" href="assets/logo.png">
+  <title>Invicta Saudável</title>
+</head>
+
+<body onload="appear()">
+        <script>
+
+
+            document.body.style.backgroundImage = "url('imagens/fundo.jpg')";
+        
+            var seta = document.createElement("IMG");
+            seta.src="imagens/seta.png";
+            seta.id="seta";
+            document.body.appendChild(seta);
+
+            //textos
+            var sobre = document.createElement("DIV");
+            sobre.id = "sobre";
+            sobre.innerHTML = "<h2>Sobre nós</h2>";
+            document.body.appendChild(sobre);
+
+            var textosofia = document.createElement("DIV");
+            textosofia.id = "textosofia";
+            textosofia.innerHTML = "<p><b>Sofia Gama</b><br>up202005121<br>Faculdade de Letras da Universidade do Porto</p>";
+            document.body.appendChild(textosofia);
+
+            var textomargarida = document.createElement("DIV");
+            textomargarida.id = "textomargarida";
+            textomargarida.innerHTML = "<p><b>Margarida Pereira</b><br>up201810116<br>Faculdade de Letras da Universidade do Porto</p>";
+            document.body.appendChild(textomargarida);
+
+            var textoteresa = document.createElement("DIV");
+            textoteresa.id = "textoteresa";
+            textoteresa.innerHTML = "<p><b>Teresa Pinto</b><br>up202005318<br>Faculdade de Letras da Universidade do Porto</p>";
+            document.body.appendChild(textoteresa);
+            //fotos fadein
+            var myImgSofia = document.createElement("IMG");
+            myImgSofia.src="imagens/sofia.png";
+            myImgSofia.id="sofia";
+            myImgSofia.style.opacity = "0.0";
+            document.body.appendChild(myImgSofia);
+            
+            var myImgMargarida = document.createElement("IMG");
+            myImgMargarida.src="imagens/margarida.png";
+            myImgMargarida.id="margarida";
+            myImgMargarida.style.opacity = "0.0";
+            document.body.appendChild(myImgMargarida);
+            
+            var myImgTeresa = document.createElement("IMG");
+            myImgTeresa.src= "imagens/teresa.png";
+            myImgTeresa.id="teresa";
+            myImgTeresa.style.opacity = "0.0";
+            document.body.appendChild(myImgTeresa);
+            
+            var timerSofia;
+            var timerMargarida;
+            var timerTeresa;
+            
+            function appear() {
+                timerSofia = window.setInterval(fadeinSofia, 40);
+                timerMargarida = window.setInterval(fadeinMargarida, 40);
+                timerTeresa = window.setInterval(fadeinTeresa, 40);
+            }
+            
+            function fadeinSofia() {
+                generalFadein(timerSofia, document.getElementById("sofia"));
+            }
+            
+            function fadeinMargarida() {
+                generalFadein(timerMargarida, document.getElementById("margarida"));
+            }
+            
+            function fadeinTeresa() {
+                generalFadein(timerTeresa, document.getElementById("teresa"));
+            }
+            
+            function generalFadein(timer, myImg) {
+                
+                if (myImg.style.opacity == "") {
+                    img.style.opacity = "0.0";
+                }
+                
+                var opacity = Number(myImg.style.opacity);
+                if (opacity < 1) {
+                    opacity = opacity + 0.01;
+                    myImg.style.opacity = "" + opacity;
+                }
+                else {
+                    window.clearInterval(timer);
+                }
+            }
+
+             //seta
+             var seta = document.getElementById("seta");
+            seta.addEventListener("mouseover", transparencia);
+            seta.addEventListener("mouseout", opacidade);
+            seta.addEventListener("mousedown", function () { switchContent("conteudo2") });
+            function transparencia() {
+            document.getElementById("seta").style.opacity="0.8";
+            }
+            function opacidade() {
+            document.getElementById("seta").style.opacity="1";
+            }
+        </script>
+
+        <script type="text/javascript" src="javascript.js"></script>
+    </body>
+</html>
